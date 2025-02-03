@@ -22,10 +22,6 @@
 struct Mesh {
     std::vector<float> vertices;
     unsigned int VAO, VBO;
-
-    unsigned int diffuseTexID = 0;
-    bool hasDiffuseTex = false;
-    glm::vec3 diffuseColor = glm::vec3(1.0f, 1.0f, 1.0f);
 };
 
 struct Ball {
@@ -110,7 +106,7 @@ void createHUDRectangle(HUDElement& element, float x, float y, float width, floa
 void renderHealthBar(HUDElement& healthBar, float health, GLuint shaderProgram) {
     glUseProgram(shaderProgram);
 
-    // Matriz de projeÁ„o ortogr·fica para o HUD
+    // Matriz de proje√ß√£o ortogr√°fica para o HUD
     glm::mat4 projection = glm::ortho(0.0f, (float)SCR_WIDTH, 0.0f, (float)SCR_HEIGHT);
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &projection[0][0]);
 
@@ -119,8 +115,8 @@ void renderHealthBar(HUDElement& healthBar, float health, GLuint shaderProgram) 
     glBindVertexArray(healthBar.VAO);
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
-    // Ajustar a largura da barra de vida baseado na sa˙de atual
-    float healthPercent = health / Health;  // Considerando vida m·xima de 1000
+    // Ajustar a largura da barra de vida baseado na sa√∫de atual
+    float healthPercent = health / Health;  // Considerando vida m√°xima de 1000
     glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(healthPercent, 1.0f, 1.0f));
     glm::mat4 MVP = projection * scale;
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
@@ -143,10 +139,9 @@ glm::vec3 generateTargetPoint(const glm::vec3& playerPos, const glm::vec3& enemy
     float angle = randomFloat(0, 2 * PI);
     float distance = randomFloat(minDistanceToPlayer, maxDistanceToPlayer);
 
-    // Gerar ponto em coordenadas polares e converter para cartesianas
     glm::vec3 targetPoint = playerPos + glm::vec3(
         distance * cos(angle),
-        randomFloat(-20.0f, 20.0f),  // Alguma variaÁ„o vertical
+        randomFloat(-20.0f, 20.0f),  
         distance * sin(angle)
     );
 
@@ -235,6 +230,7 @@ bool LoadObjModel(const std::string& path, Mesh& mesh) {
 
 GLuint transferDataToGPUMemory(Mesh& Obj, const std::string& obj, const char * objmtl) {
     ProgramID = LoadShaders(
+        //Alterar o path para obter corresponder
         "C:\\TransformVertexShader.vertexshader",
         "C:\\TextureFragmentShader.fragmentshader");
 
@@ -333,7 +329,7 @@ int main(void) {
         glm::mat4 ProjectionMatrix = getProjectionMatrix();
         glm::mat4 ViewMatrix = getViewMatrix();
 
-        // Vari·veis de iluminaÁ„o
+        // Vari√°veis de ilumina√ß√£o
         glm::vec3 lightPos(5.0f, 5.0f, 5.0f);
         glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
         glm::vec3 objectColor(0.70f, 1.0f, 1.0f);
@@ -342,7 +338,7 @@ int main(void) {
         glUniform3fv(glGetUniformLocation(ProgramID, "lightColor"), 1, &lightColor[0]);
         glUniform3fv(glGetUniformLocation(ProgramID, "objectColor"), 1, &objectColor[0]);
 
-        // Verificar colisıes entre tiros inimigos e jogador
+        // Verificar colis√µes entre tiros inimigos e jogador
         for (auto& ball : activeBalls) {
             if (ball.isEnemyBall && !ball.hasCollided) {
                 if (checkSphereCollision(ball.position, ballRadius, position, playerRadius)) {
@@ -358,7 +354,7 @@ int main(void) {
                     }
                 }
             }
-            // Verificar colisıes entre tiros do jogador e inimigos
+            // Verificar colis√µes entre tiros do jogador e inimigos
             else if (!ball.isEnemyBall && !ball.hasCollided) {
                 for (auto& enemy : enemies) {
                     if (enemy.active && checkSphereCollision(ball.position, ballRadius, enemy.position, enemyRadius)) {
@@ -366,7 +362,7 @@ int main(void) {
                         ball.hasCollided = true;
                         kills++;
 
-                        // Reativar inimigo em nova posiÁ„o apÛs um tempo
+                        // Reativar inimigo em nova posi√ß√£o ap√≥s um tempo
                         enemy.angle = randomFloat(0, 2 * PI);
                         enemy.position = glm::vec3(
                             position.x + spawnRadius * cos(enemy.angle),
@@ -433,37 +429,37 @@ int main(void) {
                 enemy.targetTimer = targetChangeTime;
             }
 
-            // Calcular direÁ„o para o ponto alvo
+            // Calcular dire√ß√£o para o ponto alvo
             glm::vec3 directionToTarget = enemy.targetPoint - enemy.position;
             float distanceToTarget = glm::length(directionToTarget);
 
-            // Ajustar velocidade com base na direÁ„o ao alvo
+            // Ajustar velocidade com base na dire√ß√£o ao alvo
             if (distanceToTarget > 0.1f) {
                 glm::vec3 desiredVelocity = glm::normalize(directionToTarget) * enemySpeed;
                 enemy.velocity = glm::mix(enemy.velocity, desiredVelocity, deltaTime * 2.0f);
             }
 
-            // Verificar dist‚ncia do jogador
+            // Verificar dist√¢ncia do jogador
             float distanceToPlayer = glm::length(position - enemy.position);
             if (distanceToPlayer < minDistanceToPlayer) {
-                // Se muito perto, adicionar forÁa de repuls„o
+                // Se muito perto, adicionar for√ßa de repuls√£o
                 glm::vec3 awayFromPlayer = glm::normalize(enemy.position - position);
                 enemy.velocity += awayFromPlayer * enemySpeed * deltaTime * 2.0f;
             }
             else if (distanceToPlayer > maxDistanceToPlayer) {
-                // Se muito longe, gerar novo ponto alvo mais prÛximo do jogador
+                // Se muito longe, gerar novo ponto alvo mais pr√≥ximo do jogador
                 enemy.targetPoint = generateTargetPoint(position, enemy.position);
                 enemy.targetTimer = targetChangeTime;
             }
 
-            // Atualizar posiÁ„o
+            // Atualizar posi√ß√£o
             enemy.position += enemy.velocity * deltaTime;
 
             // Renderizar inimigo
             glm::mat4 EnemyModel = glm::mat4(1.0f);
             EnemyModel = glm::translate(EnemyModel, enemy.position);
 
-            // Fazer o inimigo olhar na direÁ„o do movimento
+            // Fazer o inimigo olhar na dire√ß√£o do movimento
             glm::vec3 lookDirection = glm::normalize(position - enemy.position);
             float rotationAngle = atan2(lookDirection.x, lookDirection.z);
             EnemyModel = glm::rotate(EnemyModel, rotationAngle+90, glm::vec3(0.0f, 1.0f, 0.0f));
