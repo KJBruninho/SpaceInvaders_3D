@@ -13,54 +13,22 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Arquivos de Origem\P2s">
-      <UniqueIdentifier>{ec808f77-4f32-466e-a3f1-2194f002d80e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Arquivos de Origem\tiny">
-      <UniqueIdentifier>{f75e1650-1851-49f1-a33f-d327fb2d99a1}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="P2.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="tiny_obj_loader.cpp">
-      <Filter>Arquivos de Origem\tiny</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\tiny_obj_loader.cpp">
+      <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\controls.cpp">
-      <Filter>Arquivos de Origem\P2s</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\controls.cpp">
+      <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\objloader.cpp">
-      <Filter>Arquivos de Origem\P2s</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\shader.cpp">
+      <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\shader.cpp">
-      <Filter>Arquivos de Origem\P2s</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\texture.cpp">
+      <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\texture.cpp">
-      <Filter>Arquivos de Origem\P2s</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="tiny_obj_loader.h">
-      <Filter>Arquivos de Origem\tiny</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\controls.hpp">
-      <Filter>Arquivos de Origem\P2s</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\objloader.hpp">
-      <Filter>Arquivos de Origem\P2s</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\shader.hpp">
-      <Filter>Arquivos de Origem\P2s</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\texture.hpp">
-      <Filter>Arquivos de Origem\P2s</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\tiny_obj_loader.h">
-      <Filter>Arquivos de Origem\P2s</Filter>
-    </ClInclude>
-    <ClInclude Include="stb_image.h">
-      <Filter>Arquivos de Origem\P2s</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

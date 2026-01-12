@@ -104,13 +104,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\OpenGL\common;C:\OpenGL\glfw-3.4.bin.WIN64\include;C:\OpenGL\glm-1.0.1;C:\OpenGL\glew-2.1.0\include;C:\OpenGL;C:\Users\bruno\OneDrive\Ambiente de Trabalho\P2\P2;C:\OpenGL\common\assimp-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenGL\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\OpenGL\glfw-3.4.bin.WIN64\lib-vc2022;C:\OpenGL\common\assimp-master\include;C:\OpenGL\glew-2.1.0\lib\Release\x64;C:\OpenGL\common;C:\OpenGL;C:\Users\bruno\OneDrive\Ambiente de Trabalho\P2\P2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\OpenGL\common;C:\Users\bruno\vcpkg\installed\x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,21 +131,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\controls.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\objloader.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\shader.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\texture.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\controls.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\shader.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\texture.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\tiny_obj_loader.cpp" />
     <ClCompile Include="P2.cpp" />
-    <ClCompile Include="tiny_obj_loader.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\controls.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\objloader.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\shader.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\texture.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\OpenGL\common\tiny_obj_loader.h" />
-    <ClInclude Include="stb_image.h" />
-    <ClInclude Include="tiny_obj_loader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
