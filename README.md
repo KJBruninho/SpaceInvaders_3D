@@ -2,13 +2,13 @@
 
 Uma reinvenção moderna e tridimensional do clássico arcade *Space Invaders*. Este projeto traz a jogabilidade icónica de defesa planetária para um ambiente 3D, desafiando o jogador a repelir hordas de alienígenas com uma nova perspetiva visual.
 
-## 🌟 Características
+## Características
 * **Jogabilidade Clássica, Visão 3D:** Mantém a mecânica de tiro e desvio, mas com profundidade e modelos tridimensionais.
 * **Ambiente Espacial:** Cenário imersivo com elementos de iluminação e perspetiva.
 * **Dificuldade Progressiva:** Ondas de inimigos que aumentam de velocidade ou quantidade conforme o progresso.
 * **Controles Intuitivos:** Movimentação fluida adaptada para o espaço 3D.
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 * **Linguagem:** C++
 * **Motor/Framework:** [Inserir aqui, ex: OpenGL, Unity, ou Unreal Engine]
 * **Ferramentas de Desenvolvimento:** Visual Studio (Ficheiro `.sln` incluído)
@@ -19,7 +19,7 @@ Uma reinvenção moderna e tridimensional do clássico arcade *Space Invaders*. 
 * `/assets`: Modelos 3D, texturas e efeitos sonoros (se aplicável).
 * `SpaceInvaders_3D.sln`: Solução para desenvolvimento em ambiente Windows/Visual Studio.
 
-## ⚙️ Como Executar
+## Como Executar
 1.  Clona o repositório:
     ```bash
     git clone [https://github.com/KJBruninho/SpaceInvaders_3D.git](https://github.com/KJBruninho/SpaceInvaders_3D.git)
@@ -28,7 +28,7 @@ Uma reinvenção moderna e tridimensional do clássico arcade *Space Invaders*. 
 3.  Verifica se as dependências gráficas estão instaladas (ex: bibliotecas como GLFW ou SDL, se utilizadas).
 4.  Compila e executa o projeto.
 
-## 🎮 Comandos
+## Comandos
 * **Setas :** Movimentar a nave.
 * **Clique esquerdo:** Disparar canhão laser.
 * **Esc:** Pausar/Sair.
