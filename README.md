@@ -29,8 +29,8 @@ Uma reinvenção moderna e tridimensional do clássico arcade *Space Invaders*. 
 4.  Compila e executa o projeto.
 
 ## 🎮 Comandos
-* **Setas / A-D:** Movimentar a nave.
-* **Espaço:** Disparar canhão laser.
+* **Setas :** Movimentar a nave.
+* **Clique esquerdo:** Disparar canhão laser.
 * **Esc:** Pausar/Sair.
 
 ## 🎓 Contexto
